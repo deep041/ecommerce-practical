@@ -9,9 +9,9 @@
             <div class="product-title">{{ cart.medicine_name }}</div>
 
             <div class="cart-buttons">
-                <i class="fa-solid fa-minus quantity-icon"></i>
+                <i class="fa-solid fa-minus quantity-icon" (click)="changeQuantity('decrease', cart.medicine_id)"></i>
                 {{cart.quantity}}
-                <i class="fa-solid fa-plus quantity-icon"></i>
+                <i class="fa-solid fa-plus quantity-icon" (click)="changeQuantity('increase', cart.medicine_id)"></i>
             </div>
         </div>
     </div>
