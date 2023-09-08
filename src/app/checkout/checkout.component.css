@@ -1,0 +1,27 @@
+.container {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.container .cart-info {
+    display: flex;
+    width: 100%;
+}
+
+.container .cart-info .cart {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.container .cart-info .patient {
+    width: 50%;
+    margin-left: 10px;
+}
+
+table th {
+    text-align: center;
+}
+
+.container .form mat-form-field {
+    margin: 0px 5px;
+}

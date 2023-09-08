@@ -1,5 +1,6 @@
 .container {
     text-align: center;
+    padding-top: 20px;
 }
 
 .cart {
@@ -39,4 +40,8 @@
     padding: 4px;
     margin: 5px;
     cursor: pointer;
+}
+
+.cart .checkout {
+    margin-top: 25px;
 }

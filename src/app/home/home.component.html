@@ -4,14 +4,17 @@
             <input type="text" placeholder="Search" formControlName="search" />
         </form>
 
-        <div class="icon" (click)="redirect()">
+        <div class="icon" (click)="redirect('cart')" *ngIf="cartItemCount > 0">
             <i class="fa-solid fa-cart-shopping"></i>
             <Span *ngIf="cartItemCount > 0">{{ cartItemCount }}</Span>
+        </div>
+        <div class="icon home" (click)="redirect('order/list')" *ngIf="patient">
+            <i class="fa-solid fa-list"></i>
         </div>
     </div>
 
     <div class="result">
-        <div class="products" *ngIf="products?.length > 0">
+        <div class="products" *ngIf="products.length > 0">
             <div class="product" *ngFor="let product of products">
                 <img [src]="'../assets/product.jpg'" />
                 <div class="product-description">
@@ -21,7 +24,7 @@
 
                     <!-- <button class="btn btn-primary" (click)="navigate(product.medicine_id)">View Details</button> -->
                     <button class="btn btn-primary" (click)="addToCart(product)" *ngIf="!product.added_to_cart">Add to cart</button>
-                    <div *ngIf="product.added_to_cart > 0">
+                    <div *ngIf="product.added_to_cart">
                         <div class="cart-buttons">
                             <i class="fa-solid fa-minus quantity-icon" (click)="changeQuantity('decrease', product.medicine_id)"></i>
                             {{product.quantity}}

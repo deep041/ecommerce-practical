@@ -1,0 +1,52 @@
+.container {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.container .order-list .order {
+    width: 50%;
+    margin: 20px auto;
+    /* padding: 10px; */
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    border: 1px solid #777;
+}
+
+.container .order-list .order img {
+    width: 15%;
+}
+
+.container .order-list .order .order-details {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.container .order-list .order .order-details .pharmacy-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.container .order-list .order .order-details .pharmacy-mobile {
+    color: #777;
+    font-size: 12px;
+}
+
+.container .order-list .order .order-details .delivery-type {
+    background-color: green;
+    width: fit-content;
+    padding: 7px 10px;
+    border-radius: 30px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.container .order-list .order .price {
+    position: absolute;
+    right: 10px;
+    font-weight: bold;
+}

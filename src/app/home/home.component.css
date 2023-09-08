@@ -1,5 +1,5 @@
 .container {
-    margin-top: 20px;
+    padding: 20px 0px;
     text-align: center;
 }
 
@@ -21,8 +21,16 @@
     transform: translate(0px, -50%);
 }
 
+.container .top .icon.home {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translate(0px, -50%);
+}
+
 .container .top .icon i {
     font-size: 25px;
+    cursor: pointer;
 }
 
 .container .top .icon span {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from '../common/interfaces/product.interface';
 
 @Component({
     selector: 'app-cart',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-    cart: any;
+    cart: Product[] = [];
 
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit(): void {
         let cartItems = localStorage.getItem('cart');
@@ -19,7 +21,7 @@ export class CartComponent implements OnInit {
     }
 
     changeQuantity(type: string, id: string): void {
-        let selectedItem = this.cart.filter((d: any) => d.medicine_id === id);
+        let selectedItem = this.cart.filter((d: Product) => d.medicine_id === id);
         if (type === 'increase') {
             selectedItem[0].quantity++;
         } else {
@@ -29,16 +31,21 @@ export class CartComponent implements OnInit {
         if (cart) {
             cart = JSON.parse(cart);
             if (cart.length > 0) {
-                let cartItem = cart.filter((cartItem: any) => cartItem.medicine_id === id);
+                let cartItem = cart.filter((cartItem: Product) => cartItem.medicine_id === id);
                 if (selectedItem[0].quantity > 0) {
                     cartItem[0].quantity = selectedItem[0].quantity;
                 } else {
                     selectedItem[0].added_to_cart = false;
-                    cart.splice(cart.findIndex((a: any) => a.medicine_id === id), 1);
+                    cart.splice(cart.findIndex((a: Product) => a.medicine_id === id), 1);
+                    this.cart = cart;
                 }
                 localStorage.setItem('cart', JSON.stringify(cart));
             }
         }
+    }
+
+    redirect(): void {
+        this.router.navigate(['/patient']);
     }
 
 }

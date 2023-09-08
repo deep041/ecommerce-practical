@@ -1,0 +1,78 @@
+<div class="container">
+    <h2>Patient</h2>
+
+    <div class="patient">
+        <form [formGroup]="patientForm">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" formControlName="first_name">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" formControlName="last_name">
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Mobile</mat-label>
+                    <input type="number" matInput placeholder="Mobile" formControlName="mobile">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input type="number" matInput placeholder="Zip Code" formControlName="zipcode">
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                        <mat-option value="other">Other</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Blood Group</mat-label>
+                    <input matInput placeholder="Blood Group" formControlName="blood_group">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>DOB</mat-label>
+                    <input matInput formControlName="dob" [matDatepicker]="picker" (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker>
+                    </mat-datepicker>
+                </mat-form-field>
+            </div>
+        </form>
+
+        <button class="btn btn-success {{ !patientForm.valid ? ' disabled' : '' }}" (click)="savePatient()">Add Patient</button>
+    </div>
+
+    <div class="added-patients" *ngIf="patient">
+        <h3>Added Patient</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ patient.first_name }}</td>
+                    <td>{{ patient.last_name }}</td>
+                    <td>{{ patient.mobile }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success" (click)="navigate()">Checkout</button>
+    </div>
+</div>

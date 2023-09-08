@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="title">
+        <h2>Order List</h2>
+    </div>
+
+    <div class="order-list">
+        <div class="order" *ngFor="let order of orders">
+            <!-- <img src="../../assets/product.jpg"> -->
+            <div class="order-details">
+                <span class="pharmacy-name">{{ order.pharmacy_details.pharmacy_name }}</span>
+                <span class="pharmacy-mobile">{{ order.pharmacy_details.mobile }}</span>
+                <span class="delivery-type">{{ order.delivery_type }}</span>
+            </div>
+            <div class="price">
+                ₹ {{ order.amount }}
+            </div>
+        </div>
+    </div>
+</div>

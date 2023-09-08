@@ -1,0 +1,90 @@
+<div class="container">
+    <h2>Checkout</h2>
+
+    <div class="cart-info">
+        <div class="cart">
+    
+            <h3>Cart</h3>
+    
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cart of cart">
+                        <td>{{ cart.medicine_name }}</td>
+                        <td>{{ cart.mrp }}</td>
+                        <td>{{ cart.quantity }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="patient">
+    
+            <h3>Patient</h3>
+    
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Mobile Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ patient.first_name }}</td>
+                        <td>{{ patient.last_name }}</td>
+                        <td>{{ patient.mobile }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="form">
+        <form [formGroup]="checkoutForm">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Delivery Type</mat-label>
+                    <mat-select formControlName="delivery_type">
+                        <mat-option value="pickup">Pickup</mat-option>
+                        <mat-option value="delivery">Delivery</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address" formControlName="address">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input matInput placeholder="City" formControlName="city">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="State" formControlName="state">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput placeholder="Zip Code" formControlName="zipcode">
+                </mat-form-field>
+            </div>
+
+        </form>
+    </div>
+
+    <button class="btn btn-success {{ !checkoutForm.valid ? ' disabled' : '' }}" (click)="placeOrder()">Place Order</button>
+</div>

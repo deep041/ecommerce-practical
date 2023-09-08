@@ -7,6 +7,12 @@ import { CommonServicesModule } from './common/common.module';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from './common/interceptor/api.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
     declarations: [
@@ -17,7 +23,12 @@ import { ApiInterceptor } from './common/interceptor/api.interceptor';
         AppRoutingModule,
         HomeModule,
         CommonServicesModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        MatSnackBarModule
     ],
     providers: [
         {
